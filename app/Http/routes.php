@@ -8,27 +8,21 @@ $api->version('v1', function ($api) {
 	$api->group(['namespace' => 'Api\Controllers', 'middleware' => 'cors'], function ($api) {
 
 		// Login route
-		$api->post('login', 'AuthController@authenticate');
-		$api->post('register', 'AuthController@register');
+		// $api->post('login', 'AuthController@authenticate');
+		// $api->post('register', 'AuthController@register');
 
 		// Dogs! All routes in here are protected and thus need a valid token
 		//$api->group( [ 'protected' => true, 'middleware' => 'jwt.refresh' ], function ($api) {
 		// $api->group( [ 'middleware' => 'jwt.refresh' ], function ($api) {
 
-			$api->get('users/me', 'AuthController@me');
-			$api->get('validate_token', 'AuthController@validateToken');
+			// $api->get('users/me', 'AuthController@me');
+			// $api->get('validate_token', 'AuthController@validateToken');
 			
-			$api->get('dogs', 'DogsController@index');
-			$api->post('dogs', 'DogsController@store');
-			$api->get('dogs/{id}', 'DogsController@show');
-			$api->delete('dogs/{id}', 'DogsController@destroy');
-			$api->put('dogs/{id}', 'DogsController@update');
-			
-			$api->get('clinics', 'ClinicController@index');
-			$api->post('clinics', 'ClinicController@store');
-			$api->get('clinics/{id}', 'ClinicController@show');
-			$api->delete('clinics/{id}', 'ClinicController@destroy');
-			$api->put('clinics/{id}', 'ClinicController@update');
+			$api->get('facilities', 'FacilityController@index');
+			$api->get('facilities/{id}', 'FacilityController@show');
+			// $api->post('facilities', 'FacilityController@store');
+			// $api->delete('facilities/{id}', 'FacilityController@destroy');
+			// $api->put('facilities/{id}', 'FacilityController@update');
 
 		// });
 
