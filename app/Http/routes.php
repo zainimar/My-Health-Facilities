@@ -13,7 +13,7 @@ $api->version('v1', function ($api) {
 
 		// Dogs! All routes in here are protected and thus need a valid token
 		//$api->group( [ 'protected' => true, 'middleware' => 'jwt.refresh' ], function ($api) {
-		$api->group( [ 'middleware' => 'jwt.refresh' ], function ($api) {
+		// $api->group( [ 'middleware' => 'jwt.refresh' ], function ($api) {
 
 			$api->get('users/me', 'AuthController@me');
 			$api->get('validate_token', 'AuthController@validateToken');
@@ -23,8 +23,14 @@ $api->version('v1', function ($api) {
 			$api->get('dogs/{id}', 'DogsController@show');
 			$api->delete('dogs/{id}', 'DogsController@destroy');
 			$api->put('dogs/{id}', 'DogsController@update');
+			
+			$api->get('clinics', 'ClinicController@index');
+			$api->post('clinics', 'ClinicController@store');
+			$api->get('clinics/{id}', 'ClinicController@show');
+			$api->delete('clinics/{id}', 'ClinicController@destroy');
+			$api->put('clinics/{id}', 'ClinicController@update');
 
-		});
+		// });
 
 	});
 
